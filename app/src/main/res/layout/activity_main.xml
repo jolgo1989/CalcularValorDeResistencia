@@ -62,7 +62,7 @@
         app:layout_constraintTop_toTopOf="@+id/imageView2" />
 
     <Spinner
-        android:id="@+id/spinnerbanda1"
+        android:id="@+id/spinnerBanda1"
         android:layout_width="0dp"
         android:layout_height="47dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -72,18 +72,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Spinner
-        android:id="@+id/spinnerbanda2"
-        android:layout_width="0dp"
-        android:layout_height="47dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.883" />
-
-    <Spinner
-        android:id="@+id/spinnerbanda3"
+        android:id="@+id/spinnerBanda2"
         android:layout_width="0dp"
         android:layout_height="47dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -94,7 +83,7 @@
         app:layout_constraintVertical_bias="0.627" />
 
     <Spinner
-        android:id="@+id/spinnerbanda4"
+        android:id="@+id/spinnerBanda3"
         android:layout_width="0dp"
         android:layout_height="47dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -103,6 +92,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.767" />
+
+    <Spinner
+        android:id="@+id/spinnerMultiplicador"
+        android:layout_width="0dp"
+        android:layout_height="47dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.883" />
 
     <TextView
         android:id="@+id/textView"
@@ -114,15 +114,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent" />
-
-    <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="228dp"
-        android:text="Button"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
