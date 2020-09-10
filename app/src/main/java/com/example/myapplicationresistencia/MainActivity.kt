@@ -24,11 +24,11 @@ class MainActivity : AppCompatActivity() {
 
         setContentView(R.layout.activity_main)
 
-        val lista = arrayOf("1", "2", "3", "4", "5", "6")
+        val lista = arrayOf("1", "2", "3", "4", "5", "6", "7", "8", "9")
         val adaptador1 = ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, lista)
         spinnerBanda1.adapter = adaptador1
 
-        val lista2 = arrayOf("1", "2", "3", "4", "5", "6")
+        val lista2 = arrayOf("0", "1", "2", "3", "4", "5", "6", "7", "8", "9")
         val adaptador2 = ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, lista2)
         spinnerBanda2.adapter = adaptador2
 
@@ -40,75 +40,128 @@ class MainActivity : AppCompatActivity() {
         val adaptador4 = ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, lista4)
         spinnerMultiplicador.adapter = adaptador4
 
-        when (spinnerBanda1.selectedItem.toString()) {
-            "1" ->
-            {
-                termino1 = "1"
-                textViewColor2.setBackgroundResource(R.color.maroon)
+
+        spinnerBanda1.onItemSelectedListener = object :
+            AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
+                when (spinnerBanda1.selectedItem.toString()) {
+                    "1" -> {
+                        termino1 = "1"
+                        textViewColor1.setBackgroundResource(R.color.maroon)
+                    }
+                    "2" -> {
+                        termino1 = "2"
+                        textViewColor1.setBackgroundResource(R.color.red)
+                    }
+                    "3" -> {
+                        termino1 = "3"
+                        textViewColor1.setBackgroundResource(R.color.orange)
+                    }
+                    "4" -> {
+                        termino1 = "4"
+                        textViewColor1.setBackgroundResource(R.color.yellow)
+                    }
+                    "5" -> {
+                        termino1 = "5"
+                        textViewColor1.setBackgroundResource(R.color.green)
+                    }
+                    "6" -> {
+                        termino1 = "6"
+                        textViewColor1.setBackgroundResource(R.color.blue)
+                    }
+
+                    "7" -> {
+                        termino1 = "7"
+                        textViewColor1.setBackgroundResource(R.color.purple)
+                    }
+
+                    "8" -> {
+                        termino1 = "8"
+                        textViewColor1.setBackgroundResource(R.color.gray)
+                    }
+
+                    "9" -> {
+                        termino1 = "9"
+                        textViewColor1.setBackgroundResource(R.color.white)
+                    }
+
+                }
+
+                acumulador = termino1 + termino2
+                resultado = acumulador.toDouble()
+                textView.text = java.lang.Double.toString(resultado) + "Ω" + termino4
+
             }
 
-            
-            "2" -> termino1 = "2"
-            "3" -> termino1 = "3"
-            "4" -> termino1 = "4"
-            "5" -> termino1 = "5"
-            "6" -> termino1 = "6"
+            override fun onNothingSelected(p0: AdapterView<*>?) {
+                TODO("Not yet implemented")
+            }
         }
 
-        acumulador = termino1 + termino2
-        resultado = acumulador.toDouble()
-        textView.text = java.lang.Double.toString(resultado) + "Ω" + termino4
 
-        when (spinnerBanda2.selectedItem.toString()) {
-            "0" -> {
-                termino2 = "1"
-                textViewColor2.setBackgroundResource(R.color.black)
+        spinnerBanda2.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
+                when (spinnerBanda2.selectedItem.toString()) {
+                    "0" -> {
+                        termino2 = "1"
+                        textViewColor2.setBackgroundResource(R.color.black)
+                    }
+
+                    "1" -> {
+                        termino2 = "1"
+                        textViewColor2.setBackgroundResource(R.color.maroon)
+                    }
+                    "2" -> {
+                        termino2 = "2"
+                        textViewColor2.setBackgroundResource(R.color.red)
+                    }
+                    "3" -> {
+                        termino2 = "3"
+                        textViewColor2.setBackgroundResource(R.color.orange)
+                    }
+                    "4" -> {
+                        termino2 = "4"
+                        textViewColor2.setBackgroundResource(R.color.yellow)
+                    }
+                    "5" -> {
+                        termino2 = "5"
+                        textViewColor2.setBackgroundResource(R.color.green)
+                    }
+                    "6" -> {
+                        termino2 = "6"
+                        textViewColor2.setBackgroundResource(R.color.blue)
+                    }
+
+                    "7" -> {
+                        termino2 = "7"
+                        textViewColor2.setBackgroundResource(R.color.purple)
+                    }
+
+                    "8" -> {
+                        termino2 = "8"
+                        textViewColor2.setBackgroundResource(R.color.gray)
+                    }
+
+                    "9" -> {
+                        termino2 = "9"
+                        textViewColor2.setBackgroundResource(R.color.white)
+                    }
+                }
+
+                acumulador = termino1 + termino2
+                resultado = acumulador.toDouble()
+                textView.text = java.lang.Double.toString(resultado) + "Ω" + termino4
+
+
             }
 
-            "1" -> {
-                termino2 = "1"
-                textViewColor2.setBackgroundResource(R.color.maroon)
-            }
-            "2" -> {
-                termino2 = "2"
-                textViewColor2.setBackgroundResource(R.color.red)
-            }
-            "3" -> {
-                termino2 = "3"
-                textViewColor2.setBackgroundResource(R.color.orange)
-            }
-            "4" -> {
-                termino2 = "4"
-                textViewColor2.setBackgroundResource(R.color.yellow)
-            }
-            "5" -> {
-                termino2 = "5"
-                textViewColor2.setBackgroundResource(R.color.green)
-            }
-            "6" ->{
-                termino2 = "6"
-                textViewColor2.setBackgroundResource(R.color.blue)
+            override fun onNothingSelected(p0: AdapterView<*>?) {
+
             }
 
-            "7" ->{
-                termino2 = "7"
-                textViewColor2.setBackgroundResource(R.color.purple)
-            }
 
-            "8" ->{
-                termino2 = "8"
-                textViewColor2.setBackgroundResource(R.color.gray)
-            }
-
-            "9" ->{
-                termino2 = "9"
-                textViewColor2.setBackgroundResource(R.color.white)
-            }
         }
-        acumulador = termino1 + termino2
-        resultado = acumulador.toDouble()
-        textView.text = java.lang.Double.toString(resultado) + "Ω" + termino4
-
+        
         spinnerBanda3.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
                 when (spinnerBanda3.selectedItem.toString()) {
@@ -160,7 +213,6 @@ class MainActivity : AppCompatActivity() {
                     textView.text = resultado.toString() + "Ω" + termino4
 
                 }
-
 
             }
 
