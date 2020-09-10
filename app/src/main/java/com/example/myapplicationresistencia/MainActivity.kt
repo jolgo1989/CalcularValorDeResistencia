@@ -41,7 +41,13 @@ class MainActivity : AppCompatActivity() {
         spinnerMultiplicador.adapter = adaptador4
 
         when (spinnerBanda1.selectedItem.toString()) {
-            "1" -> termino1 = "1"
+            "1" ->
+            {
+                termino1 = "1"
+                textViewColor2.setBackgroundResource(R.color.maroon)
+            }
+
+            
             "2" -> termino1 = "2"
             "3" -> termino1 = "3"
             "4" -> termino1 = "4"
@@ -54,12 +60,50 @@ class MainActivity : AppCompatActivity() {
         textView.text = java.lang.Double.toString(resultado) + "Ω" + termino4
 
         when (spinnerBanda2.selectedItem.toString()) {
-            "1" -> termino2 = "1"
-            "2" -> termino2 = "2"
-            "3" -> termino2 = "3"
-            "4" -> termino2 = "4"
-            "5" -> termino2 = "5"
-            "6" -> termino2 = "6"
+            "0" -> {
+                termino2 = "1"
+                textViewColor2.setBackgroundResource(R.color.black)
+            }
+
+            "1" -> {
+                termino2 = "1"
+                textViewColor2.setBackgroundResource(R.color.maroon)
+            }
+            "2" -> {
+                termino2 = "2"
+                textViewColor2.setBackgroundResource(R.color.red)
+            }
+            "3" -> {
+                termino2 = "3"
+                textViewColor2.setBackgroundResource(R.color.orange)
+            }
+            "4" -> {
+                termino2 = "4"
+                textViewColor2.setBackgroundResource(R.color.yellow)
+            }
+            "5" -> {
+                termino2 = "5"
+                textViewColor2.setBackgroundResource(R.color.green)
+            }
+            "6" ->{
+                termino2 = "6"
+                textViewColor2.setBackgroundResource(R.color.blue)
+            }
+
+            "7" ->{
+                termino2 = "7"
+                textViewColor2.setBackgroundResource(R.color.purple)
+            }
+
+            "8" ->{
+                termino2 = "8"
+                textViewColor2.setBackgroundResource(R.color.gray)
+            }
+
+            "9" ->{
+                termino2 = "9"
+                textViewColor2.setBackgroundResource(R.color.white)
+            }
         }
         acumulador = termino1 + termino2
         resultado = acumulador.toDouble()
