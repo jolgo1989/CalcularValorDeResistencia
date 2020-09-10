@@ -161,22 +161,62 @@ class MainActivity : AppCompatActivity() {
 
 
         }
-        
+
         spinnerBanda3.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
                 when (spinnerBanda3.selectedItem.toString()) {
-                    "1" -> termino3 = 1.0
-                    "2" -> termino3 = 10.0
-                    "3" -> termino3 = 100.0
-                    "4" -> termino3 = 1000.0
-                    "5" -> termino3 = 10000.0
-                    "6" -> termino3 = 100000.0
-                    "7" -> termino3 = 1000000.0
-                    "8" -> termino3 = 10000000.0
-                    "9" -> termino3 = 100000000.0
-                    "10" -> termino3 = 1000000000.0
-                    "11" -> termino3 = 0.1
-                    "12" -> termino3 = 0.01
+                    "1" -> {
+                        termino3 = 1.0
+                        textViewColor3.setBackgroundResource(R.color.black)
+                    }
+
+                    "2" -> {
+                        termino3 = 10.0
+                        textViewColor3.setBackgroundResource(R.color.maroon)
+                    }
+                    "3" ->{
+                        termino3 = 100.0
+                        textViewColor3.setBackgroundResource(R.color.red)
+                    }
+
+                    "4" -> {
+                        termino3 = 1000.0
+                        textViewColor3.setBackgroundResource(R.color.orange)
+                    }
+                    "5" -> {
+                        termino3 = 10000.0
+                        textViewColor3.setBackgroundResource(R.color.yellow)
+
+                    }
+                    "6" ->{
+                        termino3 = 100000.0
+                        textViewColor3.setBackgroundResource(R.color.green)
+                    }
+                    "7" -> {
+                        textViewColor3.setBackgroundResource(R.color.blue)
+                        termino3 = 1000000.0
+                    }
+                    "8" ->{
+                        textViewColor3.setBackgroundResource(R.color.purple)
+                        termino3 = 10000000.0
+                    }
+                    "9" -> {
+                        textViewColor3.setBackgroundResource(R.color.gray)
+                        termino3 = 100000000.0
+                    }
+                    "10" ->{
+                        textViewColor3.setBackgroundResource(R.color.white)
+                        termino3 = 1000000000.0
+                    }
+                    "11" -> {
+                        textViewColor3.setBackgroundResource(R.color.darkgoldenrod)
+                        termino3 = 0.1
+                    }
+
+                    "12" ->{
+                        termino3 = 0.01
+                        textViewColor3.setBackgroundResource(R.color.silver)
+                    }
                 }
                 if (termino1 != "" && termino2 != "") {
                     acumulador = termino1 + termino2
