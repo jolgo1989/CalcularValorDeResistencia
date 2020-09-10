@@ -32,11 +32,11 @@ class MainActivity : AppCompatActivity() {
         val adaptador2 = ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, lista2)
         spinnerBanda2.adapter = adaptador2
 
-        val lista3 = arrayOf("1", "2", "3", "4", "5", "6")
+        val lista3 = arrayOf("1", "2", "3", "4", "5", "6","7", "8", "9", "10", "11", "12")
         val adaptador3 = ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, lista3)
         spinnerBanda3.adapter = adaptador3
 
-        val lista4 = arrayOf("±1%","±2%","±0.5%","±0.25%","±0.1%","±0.05%","±5%","±10%")
+        val lista4 = arrayOf("1", "2", "3", "4", "5", "6","7","8")
         val adaptador4 = ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, lista4)
         spinnerMultiplicador.adapter = adaptador4
 
@@ -97,36 +97,41 @@ class MainActivity : AppCompatActivity() {
 
         spinnerMultiplicador.onItemSelectedListener = object :
             AdapterView.OnItemSelectedListener {
-
             override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
-                textView.text = lista4 [p2]
+
+                when (spinnerMultiplicador.selectedItem.toString()) {
+                    "1" -> termino4 = "±1%"
+                    "2" -> termino4 = "±2%"
+                    "3" -> termino4 = "±0.5%"
+                    "4" -> termino4 = "±0.25%"
+                    "5" -> termino4 = "±0.1%"
+                    "6" -> termino4 = "±0.05%"
+                    "7" -> termino4 = "±5%"
+                    "8" -> termino4 = "±10%"
+                }
+                if (termino1 != "" && termino2 != "" && termino3 != 0.0) {
+                    acumulador = termino1 + termino2;
+                    val resultado = acumulador.toDouble() * termino3
+                    textView.text = resultado.toString() + "Ω" + termino4[p2].toString()
+
+                }
+
 
             }
 
             override fun onNothingSelected(p0: AdapterView<*>?) {
-
-
+                TODO("Not yet implemented")
             }
-
-        }
-
-
 
 
 //Metodo para mostrar el resultado al dar click en el spinnerMultiplicador
 
+        }
     }
 }
 /*
 
-              termino4="±1%"
-              termino4=
-              termino4=
-              termino4=
-              termino4=
-              termino4=
-              termino4=
-              termino4=
+
 
               if(termino1 != "" && termino2 != "" &&termino3!=0.0){
                   acumulador=termino1+termino2;
