@@ -65,26 +65,35 @@ class MainActivity : AppCompatActivity() {
         resultado = acumulador.toDouble()
         textView.text = java.lang.Double.toString(resultado) + "Ω" + termino4
 
-        when (spinnerBanda3.selectedItem.toString()) {
-            "1" -> termino3 = 1.0
-            "2" -> termino3 = 10.0
-            "3" -> termino3 = 100.0
-            "4" -> termino3 = 1000.0
-            "5" -> termino3 = 10000.0
-            "6" -> termino3 = 10000.0
-            "7" -> termino3 = 100000.0
-            "8" -> termino3 = 1000000.0
-            "10" -> termino3 = 1000000.0
-            "11" -> termino3 = 0.1
-            "12" -> termino3 = 0.01
-        }
-        if (termino1 != "" && termino2 != "") {
-            acumulador = termino1 + termino2
-            val resultado = acumulador.toDouble() * termino3
-            textView.text = resultado.toString() + "Ω" + termino4
-        }
+        spinnerBanda3.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
+                when (spinnerBanda3.selectedItem.toString()) {
+                    "1" -> termino3 = 1.0
+                    "2" -> termino3 = 10.0
+                    "3" -> termino3 = 100.0
+                    "4" -> termino3 = 1000.0
+                    "5" -> termino3 = 10000.0
+                    "6" -> termino3 = 10000.0
+                    "7" -> termino3 = 100000.0
+                    "8" -> termino3 = 1000000.0
+                    "10" -> termino3 = 1000000.0
+                    "11" -> termino3 = 0.1
+                    "12" -> termino3 = 0.01
+                }
+                if (termino1 != "" && termino2 != "") {
+                    acumulador = termino1 + termino2
+                    val resultado = acumulador.toDouble() * termino3
+                    textView.text = resultado.toString() + "Ω" + termino4
+                }
+
+            }
+
+            override fun onNothingSelected(p0: AdapterView<*>?) {
+
+            }
 
 
+        }
 
         spinnerMultiplicador.onItemSelectedListener = object :
             AdapterView.OnItemSelectedListener {
