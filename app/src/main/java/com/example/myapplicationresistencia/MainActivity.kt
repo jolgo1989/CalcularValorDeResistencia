@@ -238,14 +238,42 @@ class MainActivity : AppCompatActivity() {
             override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
 
                 when (spinnerMultiplicador.selectedItem.toString()) {
-                    "1" -> termino4 = "±1%"
-                    "2" -> termino4 = "±2%"
-                    "3" -> termino4 = "±0.5%"
-                    "4" -> termino4 = "±0.25%"
-                    "5" -> termino4 = "±0.1%"
-                    "6" -> termino4 = "±0.05%"
-                    "7" -> termino4 = "±5%"
-                    "8" -> termino4 = "±10%"
+                    "1" -> {
+                        termino4 = "±1%"
+                        textViewColor4.setBackgroundResource(R.color.maroon)
+                        termino3 = 0.1
+                    }
+
+                    "2" ->{
+                        termino4 = "±2%"
+                        textViewColor4.setBackgroundResource(R.color.red)
+                    }
+
+                    "3" -> {
+                        termino4 = "±0.5%"
+                        textViewColor4.setBackgroundResource(R.color.green)
+                    }
+                    "4" -> {
+                        termino4 = "±0.25%"
+                        textViewColor4.setBackgroundResource(R.color.blue)
+                    }
+                    "5" -> {
+                        termino4 = "±0.1%"
+                        textViewColor4.setBackgroundResource(R.color.purple)
+                    }
+                    "6" -> {
+                        termino4 = "±0.05%"
+                        textViewColor4.setBackgroundResource(R.color.gray)
+                    }
+                    "7" ->{
+                        termino4 = "±5%"
+                        textViewColor4.setBackgroundResource(R.color.darkgoldenrod)
+
+                    }
+                    "8" ->{
+                        textViewColor4.setBackgroundResource(R.color.silver)
+                        termino4 = "±10%"
+                    }
                 }
                 if (termino1 != "" && termino2 != "" && termino3 != 0.0) {
                     acumulador = termino1 + termino2;
