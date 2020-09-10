@@ -32,11 +32,11 @@ class MainActivity : AppCompatActivity() {
         val adaptador2 = ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, lista2)
         spinnerBanda2.adapter = adaptador2
 
-        val lista3 = arrayOf("1", "2", "3", "4", "5", "6","7", "8", "9", "10", "11", "12")
+        val lista3 = arrayOf("1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12")
         val adaptador3 = ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, lista3)
         spinnerBanda3.adapter = adaptador3
 
-        val lista4 = arrayOf("1", "2", "3", "4", "5", "6","7","8")
+        val lista4 = arrayOf("1", "2", "3", "4", "5", "6", "7", "8")
         val adaptador4 = ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, lista4)
         spinnerMultiplicador.adapter = adaptador4
 
@@ -73,10 +73,11 @@ class MainActivity : AppCompatActivity() {
                     "3" -> termino3 = 100.0
                     "4" -> termino3 = 1000.0
                     "5" -> termino3 = 10000.0
-                    "6" -> termino3 = 10000.0
-                    "7" -> termino3 = 100000.0
-                    "8" -> termino3 = 1000000.0
-                    "10" -> termino3 = 1000000.0
+                    "6" -> termino3 = 100000.0
+                    "7" -> termino3 = 1000000.0
+                    "8" -> termino3 = 10000000.0
+                    "9" -> termino3 = 100000000.0
+                    "10" -> termino3 = 1000000000.0
                     "11" -> termino3 = 0.1
                     "12" -> termino3 = 0.01
                 }
@@ -112,7 +113,7 @@ class MainActivity : AppCompatActivity() {
                 if (termino1 != "" && termino2 != "" && termino3 != 0.0) {
                     acumulador = termino1 + termino2;
                     val resultado = acumulador.toDouble() * termino3
-                    textView.text = resultado.toString() + "Ω" + termino4[p2].toString()
+                    textView.text = resultado.toString() + "Ω" + termino4
 
                 }
 
@@ -122,25 +123,8 @@ class MainActivity : AppCompatActivity() {
             override fun onNothingSelected(p0: AdapterView<*>?) {
                 TODO("Not yet implemented")
             }
-
-
-//Metodo para mostrar el resultado al dar click en el spinnerMultiplicador
-
         }
+
     }
+
 }
-/*
-
-
-
-              if(termino1 != "" && termino2 != "" &&termino3!=0.0){
-                  acumulador=termino1+termino2;
-                  val resultado = acumulador.toDouble() * termino3
-                  textView.text = resultado.toString()   + "Ω" + termino4[p2].toString()
-
-
-
-                 // textView.text = resultado.toString() + "Ω" + termino4
-              }
-
-               */
