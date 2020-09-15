@@ -3,4 +3,5 @@
     <string name="button1">Boton1</string>
     <string name="button2">Boton2</string>
     <string name="todo">TODO</string>
+    <string name="colorspinner">colorSpinner</string>
 </resources>
