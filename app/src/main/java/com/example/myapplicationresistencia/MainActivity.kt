@@ -24,20 +24,21 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        spinnerBanda1.adapter = ColorsArrayAdapter(
-            this,
-            listOf(
-                Colors(resources.getColor(R.color.blue, null), "1"),
-                Colors(resources.getColor(R.color.red, null), "2"),
-                Colors(resources.getColor(R.color.maroon, null), "3"),
-                Colors(resources.getColor(R.color.blue, null), "4"),
-                Colors(resources.getColor(R.color.red, null), "5"),
-                Colors(resources.getColor(R.color.maroon, null), "6"),
-                Colors(resources.getColor(R.color.blue, null), "7"),
-                Colors(resources.getColor(R.color.red, null), "8"),
-                Colors(resources.getColor(R.color.maroon, null), "9"),
+        val lista1 = listOf<Colors>(
+            Colors(resources.getColor(R.color.maroon, null), "1"),
+            Colors(resources.getColor(R.color.red, null), "2"),
+            Colors(resources.getColor(R.color.orange, null), "3"),
+            Colors(resources.getColor(R.color.yellow, null), "4"),
+            Colors(resources.getColor(R.color.green, null), "5"),
+            Colors(resources.getColor(R.color.blue, null), "6"),
+            Colors(resources.getColor(R.color.purple, null), "7"),
+            Colors(resources.getColor(R.color.gray, null), "8"),
+            Colors(resources.getColor(R.color.white, null), "9"),
+
             )
-        )
+
+        val adatador1 = ColorsArrayAdapter(this, lista1)
+        spinnerBanda1.adapter = adatador1
 
         val lista2 = arrayOf("0", "1", "2", "3", "4", "5", "6", "7", "8", "9")
         val adaptador2 = ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, lista2)
@@ -55,7 +56,9 @@ class MainActivity : AppCompatActivity() {
         spinnerBanda1.onItemSelectedListener = object :
             AdapterView.OnItemSelectedListener {
             override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
-                when (spinnerBanda1.selectedItem.toString()) {
+
+                val selectedItem = (p0?.selectedItem as Colors)
+                when (selectedItem.description) {
                     "1" -> {
                         termino1 = "1"
                         textViewColor1.setBackgroundResource(R.color.maroon)
@@ -80,17 +83,14 @@ class MainActivity : AppCompatActivity() {
                         termino1 = "6"
                         textViewColor1.setBackgroundResource(R.color.blue)
                     }
-
                     "7" -> {
                         termino1 = "7"
                         textViewColor1.setBackgroundResource(R.color.purple)
                     }
-
                     "8" -> {
                         termino1 = "8"
                         textViewColor1.setBackgroundResource(R.color.gray)
                     }
-
                     "9" -> {
                         termino1 = "9"
                         textViewColor1.setBackgroundResource(R.color.white)
@@ -98,6 +98,7 @@ class MainActivity : AppCompatActivity() {
 
                 }
 
+/////////////////////////////////////
                 acumulador = termino1 + termino2
 
                 if (acumulador.isNotEmpty()) {
@@ -109,7 +110,6 @@ class MainActivity : AppCompatActivity() {
                     }
 
                 }
-                
 
             }
 
