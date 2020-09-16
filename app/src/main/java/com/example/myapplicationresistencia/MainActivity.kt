@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.get
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.activity_main.view.*
+import java.io.IOException
 
 class MainActivity : AppCompatActivity() {
     private var acumulador = ""
@@ -40,17 +41,57 @@ class MainActivity : AppCompatActivity() {
         val adatador1 = ColorsArrayAdapter(this, lista1)
         spinnerBanda1.adapter = adatador1
 
-        val lista2 = arrayOf("0", "1", "2", "3", "4", "5", "6", "7", "8", "9")
-        val adaptador2 = ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, lista2)
-        spinnerBanda2.adapter = adaptador2
+        val lista2 = listOf<Colors>(
+            Colors(resources.getColor(R.color.black, null), "0"),
+            Colors(resources.getColor(R.color.maroon, null), "1"),
+            Colors(resources.getColor(R.color.red, null), "2"),
+            Colors(resources.getColor(R.color.orange, null), "3"),
+            Colors(resources.getColor(R.color.yellow, null), "4"),
+            Colors(resources.getColor(R.color.green, null), "5"),
+            Colors(resources.getColor(R.color.blue, null), "6"),
+            Colors(resources.getColor(R.color.purple, null), "7"),
+            Colors(resources.getColor(R.color.gray, null), "8"),
+            Colors(resources.getColor(R.color.white, null), "9"),
 
-        val lista3 = arrayOf("1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12")
-        val adaptador3 = ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, lista3)
-        spinnerBanda3.adapter = adaptador3
+            )
 
-        val lista4 = arrayOf("1", "2", "3", "4", "5", "6", "7", "8")
-        val adaptador4 = ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, lista4)
-        spinnerMultiplicador.adapter = adaptador4
+        val adatador2 = ColorsArrayAdapter(this, lista2)
+        spinnerBanda2.adapter = adatador2
+
+        val lista3 = listOf<Colors>(
+            Colors(resources.getColor(R.color.black, null), "1"),
+            Colors(resources.getColor(R.color.maroon, null), "2"),
+            Colors(resources.getColor(R.color.red, null), "3"),
+            Colors(resources.getColor(R.color.orange, null), "4"),
+            Colors(resources.getColor(R.color.yellow, null), "5"),
+            Colors(resources.getColor(R.color.green, null), "6"),
+            Colors(resources.getColor(R.color.blue, null), "7"),
+            Colors(resources.getColor(R.color.purple, null), "8"),
+            Colors(resources.getColor(R.color.gray, null), "9"),
+            Colors(resources.getColor(R.color.white, null), "10"),
+            Colors(resources.getColor(R.color.darkgoldenrod, null), "11"),
+            Colors(resources.getColor(R.color.silver, null), "12"),
+
+            )
+
+        val adatador3 = ColorsArrayAdapter(this, lista3)
+        spinnerBanda3.adapter = adatador3
+
+        val lista4 = listOf<Colors>(
+            Colors(resources.getColor(R.color.maroon, null), "1"),
+            Colors(resources.getColor(R.color.red, null), "2"),
+            Colors(resources.getColor(R.color.green, null), "3"),
+            Colors(resources.getColor(R.color.blue, null), "4"),
+            Colors(resources.getColor(R.color.purple, null), "5"),
+            Colors(resources.getColor(R.color.gray, null), "6"),
+            Colors(resources.getColor(R.color.darkgoldenrod, null), "7"),
+            Colors(resources.getColor(R.color.silver, null), "8"),
+
+
+            )
+
+        val adatador4 = ColorsArrayAdapter(this, lista4)
+        spinnerMultiplicador.adapter = adatador4
 
 
         spinnerBanda1.onItemSelectedListener = object :
@@ -62,6 +103,7 @@ class MainActivity : AppCompatActivity() {
                     "1" -> {
                         termino1 = "1"
                         textViewColor1.setBackgroundResource(R.color.maroon)
+
                     }
                     "2" -> {
                         termino1 = "2"
@@ -98,9 +140,7 @@ class MainActivity : AppCompatActivity() {
 
                 }
 
-/////////////////////////////////////
                 acumulador = termino1 + termino2
-
                 if (acumulador.isNotEmpty()) {
                     try {
                         resultado = acumulador.toDouble()
@@ -121,7 +161,9 @@ class MainActivity : AppCompatActivity() {
 
         spinnerBanda2.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
-                when (spinnerBanda2.selectedItem.toString()) {
+
+                val selectedItem = (p0?.selectedItem as Colors)
+                when (selectedItem.description) {
                     "0" -> {
                         termino2 = "1"
                         textViewColor2.setBackgroundResource(R.color.black)
@@ -169,8 +211,14 @@ class MainActivity : AppCompatActivity() {
                 }
 
                 acumulador = termino1 + termino2
-                resultado = acumulador.toDouble()
-                textView.text = java.lang.Double.toString(resultado) + "Ω" + termino4
+                if (acumulador.isNotEmpty()) {
+                    try {
+                        resultado = acumulador.toDouble()
+                        textView.text = java.lang.Double.toString(resultado) + "Ω" + termino4
+                    } catch (e: IOException) {
+
+                    }
+                }
 
 
             }
@@ -184,7 +232,8 @@ class MainActivity : AppCompatActivity() {
 
         spinnerBanda3.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
-                when (spinnerBanda3.selectedItem.toString()) {
+                val selectedItem = (p0?.selectedItem as Colors)
+                when (selectedItem.description) {
                     "1" -> {
                         termino3 = 1.0
                         textViewColor3.setBackgroundResource(R.color.black)
@@ -239,9 +288,15 @@ class MainActivity : AppCompatActivity() {
                     }
                 }
                 if (termino1 != "" && termino2 != "") {
-                    acumulador = termino1 + termino2
-                    val resultado = acumulador.toDouble() * termino3
-                    textView.text = resultado.toString() + "Ω" + termino4
+                    try {
+                        acumulador = termino1 + termino2
+                        val resultado = acumulador.toDouble() * termino3
+                        textView.text = resultado.toString() + "Ω" + termino4
+
+                    } catch (e: IOException) {
+
+                    }
+
                 }
 
             }
@@ -256,8 +311,8 @@ class MainActivity : AppCompatActivity() {
         spinnerMultiplicador.onItemSelectedListener = object :
             AdapterView.OnItemSelectedListener {
             override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
-
-                when (spinnerMultiplicador.selectedItem.toString()) {
+                val selectedItem = (p0?.selectedItem as Colors)
+                when (selectedItem.description) {
                     "1" -> {
                         termino4 = "±1%"
                         textViewColor4.setBackgroundResource(R.color.maroon)
@@ -296,9 +351,14 @@ class MainActivity : AppCompatActivity() {
                     }
                 }
                 if (termino1 != "" && termino2 != "" && termino3 != 0.0) {
-                    acumulador = termino1 + termino2;
-                    val resultado = acumulador.toDouble() * termino3
-                    textView.text = resultado.toString() + "Ω" + termino4
+                    try {
+                        acumulador = termino1 + termino2;
+                        val resultado = acumulador.toDouble() * termino3
+                        textView.text = resultado.toString() + "Ω" + termino4
+                    } catch (e: IOException) {
+
+                    }
+
 
                 }
 
