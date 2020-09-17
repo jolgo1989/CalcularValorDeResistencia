@@ -10,9 +10,9 @@
     <TextView
         android:id="@+id/textViewColors"
         android:layout_width="0dp"
-        android:layout_height="60dp"
+        android:layout_height="47dp"
         android:text="@string/colorspinner"
-        android:textColor="@color/darkcyan"
+        android:textColor="@color/aqua"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

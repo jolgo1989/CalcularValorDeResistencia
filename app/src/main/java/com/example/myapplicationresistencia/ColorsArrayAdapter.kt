@@ -9,8 +9,8 @@ import kotlinx.android.synthetic.main.activity_main.view.*
 import kotlinx.android.synthetic.main.colorspinner.view.*
 
 class ColorsArrayAdapter (ctx: Context,
-                          moods: List<Colors>) :
-    ArrayAdapter<Colors>(ctx, 0, moods) {
+                          colors: List<Colors>) :
+    ArrayAdapter<Colors>(ctx, 0, colors) {
     override fun getView(position: Int, recycledView: View?, parent: ViewGroup): View {
         return this.createView(position, recycledView, parent)
     }
@@ -25,6 +25,7 @@ class ColorsArrayAdapter (ctx: Context,
             false
         )
 
+        //Metodo para recibir el modelo de datos backgroundColor y description de la clase Colors
         mood?.backgroundColor?.let { view.rootLayout.setBackgroundColor(it) }
         view.textViewColors.text = mood?.description
         return view

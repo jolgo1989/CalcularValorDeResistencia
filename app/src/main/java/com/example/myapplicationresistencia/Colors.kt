@@ -1,5 +1,7 @@
 package com.example.myapplicationresistencia
 
-class Colors ( val backgroundColor: Int,
-               val description: String)
+class Colors(
+    //Metodo para Pasar un color y descripción utilizando el modelo de datos backgroundColor y description
+    val backgroundColor: Int,
+    val description: String)
 

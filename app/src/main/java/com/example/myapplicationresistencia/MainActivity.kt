@@ -1,14 +1,11 @@
 package com.example.myapplicationresistencia
 
-import android.graphics.Color
+
 import android.os.Bundle
 import android.view.View
 import android.widget.AdapterView
-import android.widget.ArrayAdapter
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.get
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.activity_main.view.*
 import java.io.IOException
 
 class MainActivity : AppCompatActivity() {
@@ -21,11 +18,14 @@ class MainActivity : AppCompatActivity() {
     var resultado: Double = 0.0
 
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        //Metodo para llamar al Spinner personalizado
         val lista1 = listOf<Colors>(
+
             Colors(resources.getColor(R.color.maroon, null), "1"),
             Colors(resources.getColor(R.color.red, null), "2"),
             Colors(resources.getColor(R.color.orange, null), "3"),
@@ -93,12 +93,15 @@ class MainActivity : AppCompatActivity() {
         spinnerBanda1.onItemSelectedListener = object :
             AdapterView.OnItemSelectedListener {
             override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
+                //Metodo para Calcular los valores
+
 
                 val selectedItem = (p0?.selectedItem as Colors)
                 when (selectedItem.description) {
                     "1" -> {
                         termino1 = "1"
                         textViewColor1.setBackgroundResource(R.color.maroon)
+
 
                     }
                     "2" -> {
@@ -141,7 +144,7 @@ class MainActivity : AppCompatActivity() {
                 if (acumulador.isNotEmpty()) {
                     try {
                         resultado = acumulador.toDouble()
-                        textView.text = java.lang.Double.toString(resultado) + "Ω" + termino4
+                        textViewValor.text = java.lang.Double.toString(resultado) + "Ω" + termino4
                     } catch (e: Exception) {
 
                     }
@@ -158,7 +161,6 @@ class MainActivity : AppCompatActivity() {
 
         spinnerBanda2.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
-
                 val selectedItem = (p0?.selectedItem as Colors)
                 when (selectedItem.description) {
                     "0" -> {
@@ -211,7 +213,7 @@ class MainActivity : AppCompatActivity() {
                 if (acumulador.isNotEmpty()) {
                     try {
                         resultado = acumulador.toDouble()
-                        textView.text = java.lang.Double.toString(resultado) + "Ω" + termino4
+                        textViewValor.text = java.lang.Double.toString(resultado) + "Ω" + termino4
                     } catch (e: IOException) {
 
                     }
@@ -288,7 +290,7 @@ class MainActivity : AppCompatActivity() {
                     try {
                         acumulador = termino1 + termino2
                         val resultado = acumulador.toDouble() * termino3
-                        textView.text = resultado.toString() + "Ω" + termino4
+                        textViewValor.text = resultado.toString() + "Ω" + termino4
 
                     } catch (e: IOException) {
 
@@ -351,8 +353,9 @@ class MainActivity : AppCompatActivity() {
                     try {
                         acumulador = termino1 + termino2;
                         val resultado = acumulador.toDouble() * termino3
-                        textView.text = resultado.toString() + "Ω" + termino4
+                        textViewValor.text = resultado.toString() + "Ω" + termino4
                     } catch (e: IOException) {
+
 
                     }
 
@@ -362,10 +365,12 @@ class MainActivity : AppCompatActivity() {
             }
 
             override fun onNothingSelected(p0: AdapterView<*>?) {
-                TODO("Not yet implemented")
+
             }
         }
 
     }
 
+
 }
+
