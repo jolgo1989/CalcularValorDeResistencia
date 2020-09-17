@@ -37,7 +37,6 @@ class MainActivity : AppCompatActivity() {
             Colors(resources.getColor(R.color.white, null), "9"),
 
             )
-
         val adatador1 = ColorsArrayAdapter(this, lista1)
         spinnerBanda1.adapter = adatador1
 
@@ -86,10 +85,7 @@ class MainActivity : AppCompatActivity() {
             Colors(resources.getColor(R.color.gray, null), "6"),
             Colors(resources.getColor(R.color.darkgoldenrod, null), "7"),
             Colors(resources.getColor(R.color.silver, null), "8"),
-
-
-            )
-
+        )
         val adatador4 = ColorsArrayAdapter(this, lista4)
         spinnerMultiplicador.adapter = adatador4
 
@@ -136,6 +132,7 @@ class MainActivity : AppCompatActivity() {
                     "9" -> {
                         termino1 = "9"
                         textViewColor1.setBackgroundResource(R.color.white)
+
                     }
 
                 }
