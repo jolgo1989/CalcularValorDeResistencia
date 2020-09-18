@@ -290,7 +290,7 @@ class MainActivity : AppCompatActivity() {
                     try {
                         acumulador = termino1 + termino2
                         val resultado = acumulador.toDouble() * termino3
-                        textViewValor.text = resultado.toString() + "Ω" + termino4
+                     textViewValor.text = resultado.toString() + "Ω" + termino4
 
                     } catch (e: IOException) {
 
